@@ -1,10 +1,9 @@
 package com.gloriane;
 
-import java.time.DayOfWeek;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
+
+
 
 public class DateTimeDemo {
     public static void main(String[] args) {
@@ -52,6 +51,43 @@ public class DateTimeDemo {
         DayOfWeek weekday = birthday.getDayOfWeek();
         System.out.println("December 11, 1977 was a: " + weekday);
 
+        System.out.println("----Ex6-------");
+        LocalDate currentDate = LocalDate.now();
+        LocalDate futureDate = currentDate.plusYears(10).minusMonths(9);
+        System.out.println("Date after adding 10 years and subtracting 9 months: " + futureDate);
 
+        System.out.println("----Ex7-------");
+        LocalDate targetDate = LocalDate.of(2035, 3, 1);//2035-03-01
+        LocalDate birthdayDate = LocalDate.of(1977, 12, 11);//1977-12-11
+        Period elapsed = Period.between(birthdayDate, targetDate);
+        System.out.println("Time elapsed from December 11, 1977 to March 1, 2035: " +
+                elapsed.getYears() + " years, " +
+                elapsed.getMonths() + " months, " +
+                elapsed.getDays() + " days.");
+
+        System.out.println("----Ex8-------");
+        Period customPeriod = Period.of(4, 7, 29);  // 4years, 7 months, 29 days
+        LocalDate newDate = currentDate.plus(customPeriod);
+        System.out.println("Date after adding custom period (4 years, 7 months, 29 days): " + newDate);
+
+        System.out.println("----Ex9-------");
+        LocalTime cTime = LocalTime.now();
+        System.out.println("Current time: " + cTime);
+
+        System.out.println("----Ex10-------");
+        LocalTime currentTimeNano = LocalTime.now();
+        int nanoseconds = currentTimeNano.getNano();
+        System.out.println("Just the nanoseconds: " + nanoseconds);
+
+        System.out.println("----Ex11-------");
+        String TimeText = "22:51:03";
+        LocalTime parsedTime = LocalTime.parse(TimeText);
+        System.out.println("Parsed time from text: " + parsedTime);
+
+        System.out.println("----Ex12-------");
+        LocalTime time1 = LocalTime.of(23, 22, 17);
+        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("hh:mm:ss a");
+        String formattedTime = time1.format(timeFormatter);
+        System.out.println("Formatted time: " + formattedTime);
     }
 }
