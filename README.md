@@ -384,3 +384,223 @@ flowchart TD
     C --> D[Print time]
     D --> E[End]
 ```
+
+### Exercise 12 — Format LocalTime
+
+### Question: 
+Using DateTimeFormatter format LocalTime from current time and print it out as following pattern:
+10:32:53
+
+### Algorithm
+
+- Get current time.
+
+- Create formatter "HH:mm:ss".
+
+- Format time.
+
+- Print.
+
+### Pseudocode
+
+```pgsql
+Start
+Time ← LocalTime.now()
+Formatter ← DateTimeFormatter("HH:mm:ss")
+Formatted ← time.format(formatter)
+Print(formatted)
+End
+```
+
+### Flowchart
+
+```mermaid
+flowchart TD
+    A[Start] --> B[Get time]
+    B --> C[Create formatter]
+    C --> D[Format]
+    D --> E[Print]
+    E --> F[End]
+```
+
+### Exercise 13 — LocalDateTime (Given values)
+
+### Question: 
+Create a LocalDateTime with the date and time components as: date: 2018-04-05, time: 10.00
+
+### Algorithm
+
+- Create LocalDate with 2018-04-05.
+
+- Create LocalTime 10:00.
+
+- Combine to LocalDateTime.
+
+- Print.
+
+### Pseudocode
+```pgsql
+Start
+Date ← LocalDate.of(2018,4,5)
+Time ← LocalTime.of(10,0)
+Dt ← LocalDateTime.of(date,time)
+Print(dt)
+End
+```
+
+### Flowchart
+
+```mermaid
+flowchart TD
+    A[Start] --> B[Create date 2018-04-05]
+    B --> C[Create time 10:00]
+    C --> D[Combine to LocalDateTime]
+    D --> E[Print]
+    E --> F[End]
+```
+
+### Exercise 14 — Format LocalDateTime
+
+### Question: 
+Using DateTimeFormatter format the LocalDateTime object from exercise 13 to a String that should
+look like this: torsdag 5 april 10:00
+
+### Algorithm
+
+- Use datetime from Ex13.
+
+- Create formatter "EEEE d MMMM HH:mm".
+
+- Format.
+
+- Print.
+
+### Pseudocode
+```pgsql
+Start
+Formatter ← DateTimeFormatter("EEEE d MMMM HH:mm")
+Formatted ← dt.format(formatter)
+Print(formatted)
+End
+```
+
+### Flowchart
+
+```mermaid
+flowchart TD
+    A[Start] --> B[Use LDT from Ex13]
+    B --> C[Create formatter]
+    C --> D[Format]
+    D --> E[Print]
+    E --> F[End]
+```
+
+### Exercise 15 — Combine LocalDate + LocalTime
+
+### Question: 
+Create a LocalDateTime object by combining LocalDate object and LocalTime object
+
+### Algorithm
+
+- Create LocalDate.
+
+- Create LocalTime.
+
+- Combine using LocalDateTime.of.
+
+- Print result.
+
+### Pseudocode
+```pgsql
+Start
+Dt ← LocalDateTime.of(date, time)
+Print(dt)
+End
+```
+
+### Flowchart
+
+```mermaid
+flowchart TD
+    A[Start] --> B[Create LocalDate]
+    B --> C[Create LocalTime]
+    C --> D[Combine]
+    D --> E[Print]
+    E --> F[End]
+```
+
+### Exercise 16 — Extract Date & Time From LocalDateTime
+
+### Question: 
+Create a LocalDateTime object. Then get the LocalDate and LocalTime components into separate
+objects of respective types from the LocalDateTime object
+
+### Algorithm
+
+- Create LocalDateTime.
+
+- Extract LocalDate.
+
+- Extract LocalTime.
+
+- Print both.
+
+### Pseudocode
+
+```pgsql
+Start
+Dt ← LocalDateTime.now()
+Date ← dt.toLocalDate()
+Time ← dt.toLocalTime()
+Print(date, time)
+End
+```
+
+### Flowchart
+
+```mermaid
+flowchart TD
+    A[Start] --> B[Create LocalDateTime]
+    B --> C[Extract LocalDate]
+    B --> D[Extract LocalTime]
+    C --> E[Print date and time]
+    D --> E
+    E --> F[End]
+```
+
+### Extra Challenge — Calendar for 2026
+
+### Questioh:
+Create your own calendar for the year 2026.
+
+### Algorithm
+
+- Create LocalDate for 2026-12-02.
+
+- Loop while year is still 2018:
+
+- Print date + day of week.
+
+- Move to next day.
+
+### Pseudocode
+
+```pgsql
+Start 
+Date ← LocalDate.of(2026,12,02)
+
+while date.year == 2026:
+    print(date, date.getDayOfWeek())
+    date ← date.plusDays(1)
+```
+### Flowchart
+
+```mermaid
+flowchart TD
+    A([Start]) --> B[Set date = 2026-01-01]
+    B --> C{Year == 2026?}
+    C -->|Yes| D[Print date + weekday]
+    D --> E[date = date + 1 day]
+    E --> C
+    C -->|No| F([End])
+```
