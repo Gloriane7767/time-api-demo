@@ -2,7 +2,7 @@ package com.gloriane;
 
 import java.time.*;
 import java.time.format.DateTimeFormatter;
-
+import java.util.Calendar;
 
 
 public class DateTimeDemo {
@@ -89,5 +89,34 @@ public class DateTimeDemo {
         DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("hh:mm:ss a");
         String formattedTime = time1.format(timeFormatter);
         System.out.println("Formatted time: " + formattedTime);
+
+        System.out.println("----Ex13-------");
+        LocalDateTime currentDT = LocalDateTime.now();
+        DateTimeFormatter dtFormatter = DateTimeFormatter.ofPattern("'date:' yyyy-MM-dd, 'time:' HH:mm:ss");
+        String formattedDateTime = currentDT.format(dtFormatter);
+        System.out.println("Formatted date and time: " + formattedDateTime);
+
+        System.out.println("----Ex14-------");
+        LocalDateTime specificDT = LocalDateTime.of(2025, 12, 1, 14, 30, 0);
+        DateTimeFormatter customFormatter = DateTimeFormatter.ofPattern("EEEE, MMMM d, yyyy 'at' hh:mm a");
+        String customFormattedDT = specificDT.format(customFormatter);
+        System.out.println("Custom formatted date and time: " + customFormattedDT);
+
+        System.out.println("----Ex15-------");
+        LocalDate dateA = LocalDate.of(2025, 12, 1);
+        LocalTime timeA = LocalTime.of(10, 15, 30);
+        LocalDateTime combinedDT = LocalDateTime.of(dateA, timeA);
+        System.out.println("Combined date and time: " + combinedDT);
+
+        System.out.println("----Ex16-------");
+        LocalDateTime dt1 = LocalDateTime.of(2025, 12, 1, 10, 0, 0);
+        LocalDate datePart = dt1.toLocalDate();
+        LocalTime timePart = dt1.toLocalTime();
+        System.out.println("Extracted date: " + datePart);
+        System.out.println("Extracted time: " + timePart);
+
+        System.out.println("----Ex17-------");
+        Calender cal = new Calender();
+        cal.displayYear(2026);
     }
 }
