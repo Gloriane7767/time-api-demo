@@ -218,4 +218,169 @@ flowchart TD
     F --> G[End]
 ```
 
+### Exercise 7 — Period Between Birthday & Date from Ex6
 
+### Question: 
+Using the LocalDate from exercise 6 and your birthdate, create a Period between your birthdate and
+the date from exercise 5. Print out the elapsed years, months and days.
+
+### Algorithm
+
+-  Use birthday date.
+
+- Use modified date from exercise 6.
+
+- Create Period between the two.
+
+- Print years, months, days.
+
+### Pseudocode
+
+```pgsql
+Start
+Period ← Period.between(birthday, newDate)
+Print(period.years, period.months, period.days)
+End
+```
+
+### Flowchart
+
+```mermaid
+flowchart TD
+
+    A[Start] --> B[Get birthday]
+    B --> C[Get modified date]
+    C --> D[Create Period]
+    D --> E[Print Y/M/D]
+    E --> F[End]
+```
+
+### Exercise 8 — Add Custom Period
+
+### Question: 
+Create a period of 4 years, 7 months and 29 days. Then create a LocalDate of current date and add
+the period you created to the current dat
+
+### Algorithm
+
+- Create Period (4y, 7m, 29d).
+
+- Get current date.
+
+- Add period to current date.
+
+- Print result.
+
+### Pseudocode
+
+```pgsql
+Start
+P ← Period.of(4, 7, 29)
+Now ← LocalDate.now()
+Result ← now.plus(p)
+Print(result)
+End
+```
+
+### Flowchart
+
+```mermaid
+flowchart TD
+    A[Start] --> B[Create Period]
+    B --> C[Get current date]
+    C --> D[Add period]
+    D --> E[Print result]
+    E --> F[End]
+````
+
+### Exercise 9 — Current LocalTime
+
+### Question: 
+Create a LocalTime object of the current time
+
+### Algorithm
+
+- Call LocalTime.now().
+
+- Print the result.
+
+### Pseudocode
+```pgsql
+Start
+Time ← LocalTime.now()
+Print(time)
+End
+```
+
+### Flowchart
+
+```mermaid
+flowchart TD
+    A[Start] --> B[Get LocalTime.now]
+    B --> C[Print time]
+    C --> D[End]
+```
+Exercise 10 — Extract Nanoseconds
+
+### Question: 
+Extract the nanoseconds of a LocalTime object of current time. Print out the nanoseconds
+### Algorithm
+
+- Get current LocalTime.
+
+- Extract nanoseconds.
+
+- Print it.
+
+### Pseudocode
+
+```pgsql
+Start
+Time ← LocalTime.now
+Nanos ← time.getNano
+Print(nanos)
+End
+```
+
+### Flowchart
+
+```mermaid
+flowchart TD
+    A[Start] --> B[Get LocalTime.now]
+    B --> C[Extract nano]
+    C --> D[Print nano]
+    D --> E[End]
+```
+
+### Exercise 11 — Parse LocalTime
+
+### Question: 
+Create a LocalTime object from a String using the .parse() method
+
+### Algorithm
+
+- Create a time string.
+
+- Parse using LocalTime.parse().
+
+- Print time.
+
+### Pseudocode
+
+```pgsql
+Start
+TimeString ← "15:20"
+Time ← LocalTime.parse(timeString)
+Print(time)
+End
+```
+
+### Flowchart
+
+```mermaid
+flowchart TD
+    A[Start] --> B[Read time string]
+    B --> C[Parse LocalTime]
+    C --> D[Print time]
+    D --> E[End]
+```
